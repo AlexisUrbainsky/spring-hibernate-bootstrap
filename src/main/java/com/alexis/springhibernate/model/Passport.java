@@ -35,10 +35,10 @@ public class Passport implements Serializable{
 	}
 	
 	public Passport(String nationality, Date expedition, Date expirate, Person person) {
-		this.nationality = nationality;
-		this.expeditionDate =expedition;
+		this.nationality 	= nationality;
+		this.expeditionDate = expedition;
 		this.expirationDate = expedition;
-		this.person = person;
+		this.person 		= person;
 	}
 	
 	@Id
@@ -83,7 +83,7 @@ public class Passport implements Serializable{
 	}
 	
 	@Temporal(TemporalType.DATE)
-	@Column(name = "expeditionDate", unique = true, nullable = false)
+	@Column(name = "expedition_date", unique = true, nullable = false)
 	public Date getExpeditionDate() {
 		return expeditionDate;
 	}
@@ -92,7 +92,7 @@ public class Passport implements Serializable{
 	}
 	
 
-	@Column(name = "expirationDate")
+	@Column(name = "expiration_date")
 	public Date getExpirationDate() {
 		return expirationDate;
 	}

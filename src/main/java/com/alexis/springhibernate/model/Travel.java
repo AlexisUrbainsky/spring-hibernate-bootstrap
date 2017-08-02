@@ -19,8 +19,8 @@ import javax.persistence.TemporalType;
 public class Travel implements Serializable {
 	
 	private int id;
-	private Date start_date;
-	private Date end_date;
+	private Date startDate;
+	private Date endDate;
 	private String porpouse;
 	private Country country;
 	
@@ -29,8 +29,8 @@ public class Travel implements Serializable {
 	}
 	
 	public Travel(Date start, Date end, String porpouse, Country country){
-		this.start_date	= start;
-		this.end_date	= end;
+		this.startDate	= start;
+		this.endDate	= end;
 		this.porpouse 	= porpouse;
 		this.country 	= country;
 	}
@@ -56,20 +56,20 @@ public class Travel implements Serializable {
 
 	@Temporal(TemporalType.DATE)
 	@Column(name = "start_date", unique = true, nullable = false, length = 10 )
-	public Date getStart_date() {
-		return start_date;
+	public Date getStartDate() {
+		return startDate;
 	}
-	public void setStart_date(Date start_date) {
-		this.start_date = start_date;
+	public void setStartDate(Date startDate) {
+		this.startDate = startDate;
 	}
 	
 	@Temporal(TemporalType.DATE)
-	@Column(name = "endt_date", unique = true, nullable = false, length = 10)
-	public Date getEnd_date() {
-		return end_date;
+	@Column(name = "end_date", unique = true, nullable = false, length = 10)
+	public Date getEndDate() {
+		return endDate;
 	}
-	public void setEnd_date(Date end_date) {
-		this.end_date = end_date;
+	public void setEndDate(Date endDate) {
+		this.endDate = endDate;
 	}
 	
 	@Column(name = "purpouse")
