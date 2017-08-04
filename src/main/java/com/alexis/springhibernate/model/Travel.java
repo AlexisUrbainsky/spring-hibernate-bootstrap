@@ -54,7 +54,6 @@ public class Travel implements Serializable {
 		this.country = country;
 	}
 
-	@Temporal(TemporalType.DATE)
 	@Column(name = "start_date", unique = true, nullable = false, length = 10 )
 	public Date getStartDate() {
 		return startDate;
@@ -63,7 +62,6 @@ public class Travel implements Serializable {
 		this.startDate = startDate;
 	}
 	
-	@Temporal(TemporalType.DATE)
 	@Column(name = "end_date", unique = true, nullable = false, length = 10)
 	public Date getEndDate() {
 		return endDate;

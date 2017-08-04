@@ -1,7 +1,10 @@
 package com.alexis.springhibernate.dao;
 
+import org.springframework.stereotype.Repository;
+
 import com.alexis.springhibernate.model.Passport;
 
+@Repository("passportDao")
 public class PassportDaoImpl extends AbstractDao<Integer, Passport> implements PassportDao {
 
 	@Override

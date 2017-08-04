@@ -42,8 +42,8 @@ public class Passport implements Serializable{
 	}
 	
 	@Id
+	@GenericGenerator(name = "generator", strategy = "foreign",	parameters = @Parameter(name = "property", value = "person"))
 	@GeneratedValue(generator = "generator")
-	@GenericGenerator(name ="generator", strategy = "foreing", parameters = @Parameter(name = "property", value ="person"))
 	@Column(name = "id", unique = true, nullable = false)
 	public int getId() {
 		return id;
@@ -61,11 +61,8 @@ public class Passport implements Serializable{
 		this.person = person;
 	}
 	
-	
-	@OneToMany(fetch = FetchType.LAZY, mappedBy="passport")
-	@JoinTable(name="travels",
-	joinColumns = @JoinColumn( name="id",nullable = false),
-	inverseJoinColumns = @JoinColumn( name="idTravel"))
+	@OneToMany(fetch = FetchType.LAZY)
+	@JoinColumn( name="idPassport", referencedColumnName="id",nullable = false)
 	public Set<Travel> getTravels() {
 		return travels;
 	}
@@ -82,7 +79,6 @@ public class Passport implements Serializable{
 		this.nationality = nationality;
 	}
 	
-	@Temporal(TemporalType.DATE)
 	@Column(name = "expedition_date", unique = true, nullable = false)
 	public Date getExpeditionDate() {
 		return expeditionDate;
