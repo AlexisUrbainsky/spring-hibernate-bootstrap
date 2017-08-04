@@ -23,19 +23,18 @@ public class PassportServiceImpl implements PassportService {
 
 	@Override
 	public void persistePassport(Passport p) {
-		// TODO Auto-generated method stub
-
+		passportDao.persistPassport(p);
 	}
 
 	@Override
 	public void updatePassport(Passport p) {
-		// TODO Auto-generated method stub
+		passportDao.updatePassport(p);
 
 	}
 
 	@Override
 	public void deletePassport(Passport p) {
-		// TODO Auto-generated method stub
+		passportDao.deletePassport(p);
 
 	}
 

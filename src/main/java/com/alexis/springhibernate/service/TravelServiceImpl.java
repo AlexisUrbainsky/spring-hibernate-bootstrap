@@ -23,19 +23,19 @@ public class TravelServiceImpl implements TravelService {
 
 	@Override
 	public void persisteTravel(Travel t) {
-		// TODO Auto-generated method stub
+		travelDao.persistTravel(t);
 
 	}
 
 	@Override
 	public void updateTravel(Travel t) {
-		// TODO Auto-generated method stub
+		travelDao.updateTravel(t);
 
 	}
 
 	@Override
 	public void deleteTravel(Travel t) {
-		// TODO Auto-generated method stub
+		travelDao.deleteTravel(t);
 
 	}
 
