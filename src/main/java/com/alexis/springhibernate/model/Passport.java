@@ -34,11 +34,10 @@ public class Passport implements Serializable{
 		
 	}
 	
-	public Passport(String nationality, Date expedition, Date expirate, Person person) {
+	public Passport(String nationality, Date expedition, Date expirate) {
 		this.nationality 	= nationality;
 		this.expeditionDate = expedition;
 		this.expirationDate = expedition;
-		this.person 		= person;
 	}
 	
 	@Id
