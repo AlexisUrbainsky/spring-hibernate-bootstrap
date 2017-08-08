@@ -39,8 +39,7 @@ public class PersonServiceImpl implements PersonService {
 
 	@Override
 	public List<Person> getAllPersons() {
-		// TODO Auto-generated method stub
-		return null;
+		return personDao.findAllPersons();
 	}
 
 }

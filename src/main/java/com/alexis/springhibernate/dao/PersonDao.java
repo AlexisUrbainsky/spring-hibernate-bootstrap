@@ -1,5 +1,7 @@
 package com.alexis.springhibernate.dao;
 
+import java.util.List;
+
 import com.alexis.springhibernate.model.Person;
 
 public interface PersonDao {
@@ -11,5 +13,7 @@ public interface PersonDao {
 	void updatePerson(Person p);
 	
 	void deletePerson(Person p);
+	
+	List<Person> findAllPersons();
 	
 }

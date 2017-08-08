@@ -1,6 +1,5 @@
 package com.alexis.springhibernate.service;
 
-import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.alexis.springhibernate.dao.TravelDao;
@@ -37,12 +36,6 @@ public class TravelServiceImpl implements TravelService {
 	public void deleteTravel(Travel t) {
 		travelDao.deleteTravel(t);
 
-	}
-
-	@Override
-	public List<Travel> getAllTravels() {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 }

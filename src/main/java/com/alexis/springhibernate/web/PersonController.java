@@ -126,7 +126,14 @@ public class PersonController {
 		return "/persons/showPerson";
 	}
 	
-	
+
+	@RequestMapping(value = "/persons/{id}/passport", method = RequestMethod.GET)
+	public String showPassport(@PathVariable int id, Model model) {
+		
+		model.addAttribute(personService.findById(id));
+		
+		return "/persons/passport";
+	}
 	
 	
 }

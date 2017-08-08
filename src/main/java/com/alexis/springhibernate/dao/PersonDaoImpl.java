@@ -1,5 +1,8 @@
 package com.alexis.springhibernate.dao;
 
+import java.util.List;
+
+import org.hibernate.Criteria;
 import org.springframework.stereotype.Repository;
 
 import com.alexis.springhibernate.model.Person;
@@ -27,4 +30,11 @@ public class PersonDaoImpl extends AbstractDao<Integer, Person> implements Perso
 		delete(p);
 	}
 
+	@SuppressWarnings("unchecked")
+	@Override
+    public List<Person> findAllPersons() {
+        Criteria criteria = createEntityCriteria();
+        return (List<Person>) criteria.list();
+    }
+	 
 }

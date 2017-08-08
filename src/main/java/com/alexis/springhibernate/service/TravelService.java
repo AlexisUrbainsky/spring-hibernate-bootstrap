@@ -1,6 +1,5 @@
 package com.alexis.springhibernate.service;
 
-import java.util.List;
 import com.alexis.springhibernate.model.Travel;
 
 public interface TravelService {
@@ -12,7 +11,5 @@ public interface TravelService {
 	void updateTravel(Travel t);
 	
 	void deleteTravel(Travel t);
-	
-	List<Travel> getAllTravels();
 	
 }

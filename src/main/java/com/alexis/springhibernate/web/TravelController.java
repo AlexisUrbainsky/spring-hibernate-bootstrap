@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.alexis.springhibernate.service.PassportService;
 import com.alexis.springhibernate.service.TravelService;
 
 @Controller
@@ -17,21 +18,21 @@ public class TravelController {
 	Logger logger = LoggerFactory.getLogger(TravelController.class);
 	
 	@Autowired
-	private TravelService travelservice;
+	private TravelService travelService;
 
-	public void setTravelservice(TravelService travelservice) {
-		this.travelservice = travelservice;
+	public void setTravelService(TravelService travelService) {
+		this.travelService = travelService;
 	}
 	
-	@RequestMapping("/travels/{passportId}/list")
-	public String listAllTravelsByPassport(@PathVariable int passportId,Model model) {
+	@RequestMapping("/travels/")
+	public String listAllTravels(Model model) {
 		
 		logger.debug("listAllTravelsByPassport()");
 		
-		
-		
 		return "/travel/list";
 	}
+
+	
 	
 	
 	
