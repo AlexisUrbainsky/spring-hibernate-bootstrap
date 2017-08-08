@@ -1,9 +1,12 @@
 package com.alexis.springhibernate.dao;
 
+import javax.transaction.Transactional;
+
 import org.springframework.stereotype.Repository;
 
 import com.alexis.springhibernate.model.Passport;
 
+@Transactional
 @Repository("passportDao")
 public class PassportDaoImpl extends AbstractDao<Integer, Passport> implements PassportDao {
 

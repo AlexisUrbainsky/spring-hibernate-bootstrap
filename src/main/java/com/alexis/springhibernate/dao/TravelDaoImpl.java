@@ -1,8 +1,11 @@
 package com.alexis.springhibernate.dao;
 
+import javax.transaction.Transactional;
+
 import org.springframework.stereotype.Repository;
 import com.alexis.springhibernate.model.Travel;
 
+@Transactional
 @Repository("travelDao")
 public class TravelDaoImpl extends AbstractDao<Integer, Travel> implements TravelDao {
 

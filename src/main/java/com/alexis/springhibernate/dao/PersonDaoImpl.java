@@ -2,11 +2,14 @@ package com.alexis.springhibernate.dao;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.hibernate.Criteria;
 import org.springframework.stereotype.Repository;
 
 import com.alexis.springhibernate.model.Person;
 
+@Transactional
 @Repository("personDao")
 public class PersonDaoImpl extends AbstractDao<Integer, Person> implements PersonDao {
 	
