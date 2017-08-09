@@ -19,17 +19,17 @@ public class Travel implements Serializable {
 	private int id;
 	private Date startDate;
 	private Date endDate;
-	private String porpouse;
+	private String purpose;
 	private Country country;
 	
 	public Travel(){
 		
 	}
 	
-	public Travel(Date start, Date end, String porpouse, Country country){
+	public Travel(Date start, Date end, String purpose, Country country){
 		this.startDate	= start;
 		this.endDate	= end;
-		this.porpouse 	= porpouse;
+		this.purpose 	= purpose;
 		this.country 	= country;
 	}
 	
@@ -68,12 +68,12 @@ public class Travel implements Serializable {
 		this.endDate = endDate;
 	}
 	
-	@Column(name = "purpouse")
-	public String getPorpouse() {
-		return porpouse;
+	@Column(name = "purpose")
+	public String getPorpose() {
+		return purpose;
 	}
-	public void setPorpouse(String porpouse) {
-		this.porpouse = porpouse;
+	public void setPorpose(String purpose) {
+		this.purpose = purpose;
 	}
 	
 }

@@ -22,6 +22,7 @@
 					<th>Name</th>
 					<th>Last Name</th>
 					<th>Sex</th>
+					<th>Email</th>
 					<th>Action</th>
 				</tr>
 			</thead>
@@ -32,6 +33,7 @@
 					<td>${person.name}</td>
 					<td>${person.lastname}</td>
 					<td>${person.sex}</td>
+					<td>${person.email}</td>
 					<td>
 						<spring:url value="/persons/${person.id}" 			var="personUrl" />
 						<spring:url value="/persons/${persons.id}/delete" 	var="deleteUrl" />
