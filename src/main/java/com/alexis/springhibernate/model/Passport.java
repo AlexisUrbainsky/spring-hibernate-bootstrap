@@ -1,23 +1,23 @@
 package com.alexis.springhibernate.model;
 
 import java.io.Serializable;
-import java.util.Calendar;
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.Set;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
-import javax.persistence.PrePersist;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
@@ -31,7 +31,7 @@ public class Passport implements Serializable{
 	private Date 	expeditionDate;
 	private Date 	expirationDate;
 	private Person	person;
-	private Set<Travel> travels;
+	private List<Travel> travels = new ArrayList<Travel>();
 	
 	public Passport() {
 		
@@ -70,13 +70,17 @@ public class Passport implements Serializable{
 		this.person = person;
 	}
 	
-	@OneToMany(fetch = FetchType.LAZY)
-	@JoinColumn( name="idPassport", referencedColumnName="id",nullable = false)
-	public Set<Travel> getTravels() {
+	@OneToMany(fetch = FetchType.EAGER)
+	@JoinTable(
+        name="travels",
+        joinColumns = @JoinColumn( name="idTravel"),
+        inverseJoinColumns = @JoinColumn( name="idPassport")
+    )
+	public List<Travel> getTravels() {
 		return travels;
 	}
 
-	public void setTravels(Set<Travel> travels) {
+	public void setTravels(List<Travel> travels) {
 		this.travels = travels;
 	}
 

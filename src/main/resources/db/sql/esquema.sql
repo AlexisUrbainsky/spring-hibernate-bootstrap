@@ -22,8 +22,8 @@ DROP TABLE IF EXISTS `passport`;
 CREATE TABLE `passport` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nationality` varchar(45) DEFAULT NULL,
-  `expedition_date` date DEFAULT NULL,
-  `expiration_date` date DEFAULT NULL,
+  `expeditionDate` date DEFAULT NULL,
+  `expirationDate` date DEFAULT NULL,
   PRIMARY KEY (`id`),
   CONSTRAINT `id` FOREIGN KEY (`id`) REFERENCES `person` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -44,8 +44,8 @@ DROP TABLE IF EXISTS `travels`;
 CREATE TABLE `travels` (
   `idtravel` int(11) NOT NULL AUTO_INCREMENT,
   `idCountry` int(11) NOT NULL,
-  `start_date` date DEFAULT NULL,
-  `end_date` date DEFAULT NULL,
+  `startDate` date DEFAULT NULL,
+  `endDate` date DEFAULT NULL,
   `purpose` varchar(45) DEFAULT NULL,
   `idPassport` int(11) NOT NULL,
   PRIMARY KEY (`idtravel`),

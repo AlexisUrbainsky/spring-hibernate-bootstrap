@@ -134,6 +134,7 @@ public class PersonController {
 		Person person = personService.findById(id);
 		
 		model.addAttribute("person" ,person);
+		model.addAttribute("travels" ,person.getPassport().getTravels());
 
 		return "/persons/passport";
 	}

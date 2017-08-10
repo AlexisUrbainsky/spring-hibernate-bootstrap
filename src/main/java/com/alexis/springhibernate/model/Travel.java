@@ -34,8 +34,8 @@ public class Travel implements Serializable {
 	}
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id", unique = true, nullable = false)
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "idTravel", unique = true, nullable = false)
 	public int getId() {
 		return id;
 	}
@@ -69,10 +69,11 @@ public class Travel implements Serializable {
 	}
 	
 	@Column(name = "purpose")
-	public String getPorpose() {
+	public String getPurpose() {
 		return purpose;
 	}
-	public void setPorpose(String purpose) {
+
+	public void setPurpose(String purpose) {
 		this.purpose = purpose;
 	}
 	

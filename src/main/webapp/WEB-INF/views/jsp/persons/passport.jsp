@@ -62,9 +62,9 @@
 			</thead>
 			
 			<c:choose>
-			    <c:when test="${not empty person.passport.travels}">
+			    <c:when test="${not empty travels}">
 			    	<tbody>
-			    	<c:forEach var="travel" items="${person.passport.travels}"></c:forEach>
+			    	<c:forEach var="travel" items="${travels}"></c:forEach>
 						<tr>
 							<td>travel.country.countryName</td>
 							<td>travel.startDate</td>
@@ -75,7 +75,13 @@
 			    </c:when>
 			    
 			    <c:otherwise>
-						<p>There is no travels made</p>
+			    <tbody>
+			   		 <tr>
+						<td colspan="4" >
+							<center><p>There is no travels made</p></center>
+						</td>
+					</tr>
+				</tbody>
 			    </c:otherwise>
 			</c:choose>
 
