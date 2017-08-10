@@ -1,6 +1,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -9,6 +10,7 @@
 <jsp:include page="../fragments/header.jsp" />
 
 <body>
+
 
 	<div class="container">
 
@@ -58,29 +60,36 @@
 					<th>Purpose</th>
 				</tr>
 			</thead>
-
-			<tbody>
-				<c:forEach var="travel" items="${person.passport.travels}">
-					<tr>
-						<td>${travel.country.countryName}</td>
-						<td>${travel.startDate}</td>
-						<td>${travel.endDate}</td>
-						<td>${travel.purpose}</td>
-					</tr>
-				</c:forEach>
-			</tbody>
+			
+			<c:choose>
+			    <c:when test="${not empty person.passport.travels}">
+			    	<tbody>
+			    	<c:forEach var="travel" items="${person.passport.travels}"></c:forEach>
+						<tr>
+							<td>travel.country.countryName</td>
+							<td>travel.startDate</td>
+							<td>travel.endDate</td>
+							<td>travel.purpose</td>
+						</tr>
+					</tbody>
+			    </c:when>
+			    
+			    <c:otherwise>
+						<p>There is no travels made</p>
+			    </c:otherwise>
+			</c:choose>
 
 		</table>
 
+		<spring:url value="/persons/${person.id}/addTravel" var="addTravelUrl" />
+		
+			<div class="form-group">
+			<div class="col-sm-offset-2 col-sm-10">
+		   		<button class="btn btn-info" onclick="post('${addTravelUrl}')">Add Travel</button>
+		    </div>
+		</div>
+		
 	</div>
-	
-	
-	
-	<!-- Add Button to Add Travels -->
-	
-	<spring:url value="/persons/${person.id}/addTravel" 			var="addTravelUrl" />
-	
-	<button class="btn btn-info" onclick="location.href='${addTravelUrl}'">Add Travel</button>
 	
 	<jsp:include page="../fragments/footer.jsp" />
 

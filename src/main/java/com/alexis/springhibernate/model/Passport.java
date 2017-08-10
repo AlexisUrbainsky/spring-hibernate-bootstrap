@@ -1,7 +1,8 @@
 package com.alexis.springhibernate.model;
 
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,8 +12,13 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.PrePersist;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
 
@@ -35,6 +41,13 @@ public class Passport implements Serializable{
 		this.nationality 	= nationality;
 		this.expeditionDate = expedition;
 		this.expirationDate = expedition;
+	}
+	
+	public Passport(String nationality, Date expedition, Date expirate, Person person) {
+		this.nationality 	= nationality;
+		this.expeditionDate = expedition;
+		this.expirationDate = expedition;
+		this.person			= person;
 	}
 	
 	@Id
@@ -75,22 +88,23 @@ public class Passport implements Serializable{
 		this.nationality = nationality;
 	}
 	
-	@Column(name = "expedition_date", unique = true, nullable = false)
+	@CreationTimestamp
+	@Temporal(TemporalType.DATE)
+	@Column(name = "expeditionDate", updatable=false)
 	public Date getExpeditionDate() {
 		return expeditionDate;
 	}
+	
 	public void setExpeditionDate(Date expeditionDate) {
 		this.expeditionDate = expeditionDate;
 	}
 	
-
-	@Column(name = "expiration_date")
+	@Column(name = "expirationDate", updatable=false)
 	public Date getExpirationDate() {
 		return expirationDate;
 	}
 	public void setExpirationDate(Date expirationDate) {
 		this.expirationDate = expirationDate;
 	}
-	
 	
 }

@@ -33,6 +33,14 @@ public class Person implements Serializable{
 		this.sex 		= sex;
 	}
 	
+	public Person(String name, String lastName, String email, String sex,Passport passport){
+		this.name 		= name;
+		this.lastName 	= lastName;
+		this.email 		= email;
+		this.sex 		= sex;
+		this.passport 	= passport;
+	}
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id", unique = true, nullable = false)

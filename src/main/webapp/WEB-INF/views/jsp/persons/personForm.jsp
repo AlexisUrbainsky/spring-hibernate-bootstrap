@@ -11,8 +11,9 @@
 <jsp:include page="../fragments/header.jsp" />
 
 <body>
+	<div class="container">
 	 
-	<h1>Add User</h1>
+	<h1>Add Person</h1>
 	
 	<spring:url value="/persons" var="personActionUrl" />
 	
@@ -58,7 +59,7 @@
 		  	</div>		
 		</spring:bind>
 		
-		<spring:bind path="passport.nationality">
+		<spring:bind path="passport.nationality" >
 			<div class="form-group ${status.error ? 'has-error' : ''}">
 				<label class="col-sm-2 control-label">nationality</label>
 				<div class="col-sm-10">
@@ -67,7 +68,7 @@
 				</div>
 		  	</div>
 		</spring:bind>
-				
+		
 		<div class="form-group">
 			<div class="col-sm-offset-2 col-sm-10">
 		   		<button type="submit" class="btn-lg btn-primary pull-right">Add</button>
@@ -75,9 +76,11 @@
 		</div>
 		
 	</form:form>
-
+	
+	</div>
+	
 	<jsp:include page="../fragments/footer.jsp" />
-
+	
 </body>
 
 </html>

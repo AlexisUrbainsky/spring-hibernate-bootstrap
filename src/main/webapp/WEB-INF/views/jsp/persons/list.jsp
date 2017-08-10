@@ -31,17 +31,14 @@
 				<tr>
 					<td>${person.id}</td>
 					<td>${person.name}</td>
-					<td>${person.lastname}</td>
+					<td>${person.lastName}</td>
 					<td>${person.sex}</td>
 					<td>${person.email}</td>
 					<td>
-						<spring:url value="/persons/${person.id}" 			var="personUrl" />
-						<spring:url value="/persons/${persons.id}/delete" 	var="deleteUrl" />
-						<spring:url value="/persons/${persons.id}/update" 	var="updateUrl" />
-						<spring:url value="/persons/${persons.id}/passport"	var="updateUrl" />
+						<spring:url value="/persons/${person.id}/delete" 	var="deleteUrl" />
+						<spring:url value="/persons/${person.id}/update" 	var="updateUrl" />
+						<spring:url value="/persons/${person.id}/passport"	var="passportUrl" />
 
-						<button class="btn btn-info"
-							onclick="location.href='${personUrl}'">View Person</button>
 						<button class="btn btn-info"
 							onclick="location.href='${passportUrl}'">View Passport</button>
 						<button class="btn btn-primary"

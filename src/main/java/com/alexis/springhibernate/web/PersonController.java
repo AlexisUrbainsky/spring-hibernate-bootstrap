@@ -1,7 +1,7 @@
 package com.alexis.springhibernate.web;
 
-import java.sql.Date;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -73,13 +73,12 @@ public class PersonController {
 		logger.debug("saveUpdatePerson()");
 		
 		if(result.hasErrors()) {
-			return "/person/add";
+			return "redirect:/persons/add";
 		}else{
 			
 			personService.persistePerson(person);
 			
-			return "persons/list";
-			///
+			return "redirect:/persons";
 		}
 		
 	}
@@ -104,12 +103,14 @@ public class PersonController {
 	}
 	
 	
-	@RequestMapping(value = "/persons/{id}/delete")
+	@RequestMapping(value = "/persons/{id}/delete", method = RequestMethod.POST)
 	public String deletePerson(@PathVariable int id ,Model model,final RedirectAttributes redirectAttributes ) {
 		
 		logger.debug("deletePerson() Id: " + id);
 		
-		personService.deletePerson(personService.findById(id));
+		Person person = personService.findById(id);
+		
+		personService.deletePerson(person);
 		
 		redirectAttributes.addFlashAttribute("css", "Success");
 		redirectAttributes.addFlashAttribute("msg", "Person is Deleted");
@@ -130,8 +131,10 @@ public class PersonController {
 	@RequestMapping(value = "/persons/{id}/passport", method = RequestMethod.GET)
 	public String showPassport(@PathVariable int id, Model model) {
 		
-		model.addAttribute(personService.findById(id));
+		Person person = personService.findById(id);
 		
+		model.addAttribute("person" ,person);
+
 		return "/persons/passport";
 	}
 	

@@ -1,5 +1,7 @@
 package com.alexis.springhibernate.service;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,6 +25,16 @@ public class PersonServiceImpl implements PersonService {
 
 	@Override
 	public void persistePerson(Person p) {
+		
+		Date expirationDate = new Date();
+		Calendar cal = Calendar.getInstance();
+		cal.setTime(expirationDate);
+		cal.add(Calendar.YEAR,7);
+		expirationDate = cal.getTime();
+
+		p.getPassport().setExpirationDate(expirationDate);
+		p.getPassport().setPerson(p);
+
 		personDao.persistPerson(p); 
 
 	}
