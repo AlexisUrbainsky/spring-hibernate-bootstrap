@@ -71,7 +71,7 @@ public class Passport implements Serializable{
 	}
 	
 	@OneToMany(fetch = FetchType.LAZY)
-	@JoinColumn( name="idPassport", referencedColumnName="id",nullable = false)
+	@JoinColumn( name="idPassport", referencedColumnName="id",nullable = true)
 	public Set<Travel> getTravels() {
 		return travels;
 	}
