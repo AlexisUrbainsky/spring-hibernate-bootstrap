@@ -70,6 +70,7 @@ public class Passport implements Serializable{
 		this.person = person;
 	}
 	
+	
 	@OneToMany(fetch = FetchType.EAGER)
 	@JoinTable(
         name="travels",
