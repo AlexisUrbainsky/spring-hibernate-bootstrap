@@ -23,8 +23,7 @@ public class CountryServiceImpl implements CountryService {
 
 	@Override
 	public List<Country> getAllCountries() {
-		// TODO Auto-generated method stub
-		return null;
+		return countryDao.getAllCountries();
 	}
 
 }

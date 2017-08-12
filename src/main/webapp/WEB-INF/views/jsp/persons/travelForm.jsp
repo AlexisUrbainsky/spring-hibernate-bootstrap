@@ -12,14 +12,19 @@
 
 <body>
 	
-	<div class="container">
-		<form:form action="/persons/saveTravel">
-		
-			<form:hidden path="passportId" />
+	<spring:url value="/travels/saveTravel/" var="travelsActionUrl" />
 	
+	
+	<div class="container">
+		<form:form action="${travels}" modelAttribute="travelForm"  class="form-horizontal" method="post">
+			
+			<spring:bind path="passportId">
+		   		<input type="hidden" name="${passportId}" value="${passportId}" id="${passportId}"><br />
+		    </spring:bind>
+        
 			<spring:bind path="startDate">
 				<div class="form-group ${status.error ? 'has-error' : ''}">
-					<label class="col-sm-2 control-label">purpose</label>
+					<label class="col-sm-2 control-label">Start Date</label>
 					<div class="col-sm-10">
 						<form:input  path="startDate" class="form-control" id="startDate" placeholder="startDate" />
 						<form:errors path="startDate" class="control-label" />
@@ -29,7 +34,7 @@
 			
 			<spring:bind path="endDate">
 				<div class="form-group ${status.error ? 'has-error' : ''}">
-					<label class="col-sm-2 control-label">purpose</label>
+					<label class="col-sm-2 control-label">End Date</label>
 					<div class="col-sm-10">
 						<form:input  path="endDate" class="form-control" id="endDate" placeholder="endDate" />
 						<form:errors path="endDate" class="control-label" />
@@ -51,9 +56,8 @@
 				<div class="form-group ${status.error ? 'has-error' : ''}">
 					<label class="col-sm-2 control-label">Country</label>
 					<div class="col-sm-5">
-						<form:select path="country" class="form-control">
-							<form:option value="NONE" label="--- Select ---" />
-							<form:options items="${countries}" />
+						<form:select path="country.id" class="form-control">
+							<form:options items="${countries}"  itemValue="id" itemLabel="countryName"/>
 						</form:select>
 						<form:errors path="country" class="control-label" />
 					</div>

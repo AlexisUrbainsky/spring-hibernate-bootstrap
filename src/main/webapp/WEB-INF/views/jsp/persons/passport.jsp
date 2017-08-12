@@ -87,13 +87,15 @@
 
 		</table>
 
-		<spring:url value="/persons/${person.id}/addTravel" var="addTravelUrl" />
+		<br></br>
+		<spring:url value="/travels/${person.id}/addTravel" var="addTravelUrl" />
 		
-			<div class="form-group">
-			<div class="col-sm-offset-2 col-sm-10">
-		   		<button class="btn btn-info" onclick="post('${addTravelUrl}')">Add Travel</button>
+		<div>
+			<div class="text-right">
+		   		<button class="btn btn-info" onclick="location.href='${addTravelUrl}'">Add Travel</button>
 		    </div>
 		</div>
+		
 		
 	</div>
 	

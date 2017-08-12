@@ -21,6 +21,8 @@ public class Travel implements Serializable {
 	private Date endDate;
 	private String purpose;
 	private Country country;
+	private int passportId;
+	
 	
 	public Travel(){
 		
@@ -76,5 +78,16 @@ public class Travel implements Serializable {
 	public void setPurpose(String purpose) {
 		this.purpose = purpose;
 	}
+
+	@Column(name = "idPassport")
+	public int getPassportId() {
+		return passportId;
+	}
+
+	public void setPassportId(int passportId) {
+		this.passportId = passportId;
+	}
+	
+	
 	
 }
