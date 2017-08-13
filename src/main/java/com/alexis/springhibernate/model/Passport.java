@@ -71,11 +71,11 @@ public class Passport implements Serializable{
 	}
 	
 	
-	@OneToMany(fetch = FetchType.EAGER)
+	@OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
 	@JoinTable(
         name="travels",
-        joinColumns = @JoinColumn( name="idTravel"),
-        inverseJoinColumns = @JoinColumn( name="idPassport")
+        joinColumns = @JoinColumn( name="idPassport"),
+        inverseJoinColumns = @JoinColumn( name="idTravel")
     )
 	public List<Travel> getTravels() {
 		return travels;

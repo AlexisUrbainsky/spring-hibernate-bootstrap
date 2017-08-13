@@ -45,7 +45,7 @@ public class Travel implements Serializable {
 		this.id = id;
 	}
 	
-	@ManyToOne(fetch = FetchType.LAZY )
+	@ManyToOne(fetch = FetchType.EAGER )
 	@JoinColumn(name = "idCountry",nullable = false)
 	public Country getCountry() {
 		return country;

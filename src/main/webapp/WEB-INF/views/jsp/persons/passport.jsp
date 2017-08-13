@@ -64,13 +64,14 @@
 			<c:choose>
 			    <c:when test="${not empty travels}">
 			    	<tbody>
-			    	<c:forEach var="travel" items="${travels}"></c:forEach>
-						<tr>
-							<td>travel.country.countryName</td>
-							<td>travel.startDate</td>
-							<td>travel.endDate</td>
-							<td>travel.purpose</td>
-						</tr>
+				    	<c:forEach var="travel" items="${travels}">
+							<tr>
+								<td>${travel.country.countryName}</td>
+								<td>${travel.startDate}</td>
+								<td>${travel.endDate}</td>
+								<td>${travel.purpose}</td>
+							</tr>
+						</c:forEach>
 					</tbody>
 			    </c:when>
 			    
