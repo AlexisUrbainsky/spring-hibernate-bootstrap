@@ -16,7 +16,7 @@
 
 		<h1>Passport</h1>
 
-		<table class="table table-sm">
+		<table class="table table-sm table-bordered">
 
 			<tr>
 				<th>Name:</th>
@@ -38,8 +38,8 @@
 
 			<tr class="bg-info">
 				<td>${person.passport.nationality}</td>
-				<td>${person.passport.expeditionDate}</td>
-				<td>${person.passport.expirationDate}</td>
+				<td><fmt:formatDate type = "date" value = "${person.passport.expeditionDate}" /></td>
+				<td><fmt:formatDate type = "date" value = "${person.passport.expirationDate}" /></td>
 			</tr>
 
 		</table>
@@ -50,9 +50,9 @@
 		
 		<br></br>
 		
-		<table class="table">
+		<table class="table table-bordered">
 
-			<thead class="thead-inverse">
+			<thead >
 				<tr>
 					<th>Country</th>
 					<th>Start Date</th>
@@ -67,8 +67,8 @@
 				    	<c:forEach var="travel" items="${travels}">
 							<tr>
 								<td>${travel.country.countryName}</td>
-								<td>${travel.startDate}</td>
-								<td>${travel.endDate}</td>
+								<td><fmt:formatDate type = "date" value = "${travel.startDate}" /></td>
+								<td><fmt:formatDate type = "date" value = "${travel.endDate}" /></td>
 								<td>${travel.purpose}</td>
 							</tr>
 						</c:forEach>
