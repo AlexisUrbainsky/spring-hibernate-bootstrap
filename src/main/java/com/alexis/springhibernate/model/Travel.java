@@ -1,7 +1,7 @@
 package com.alexis.springhibernate.model;
 
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -36,7 +36,7 @@ public class Travel implements Serializable {
 	}
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "idTravel", unique = true, nullable = false)
 	public int getId() {
 		return id;

@@ -52,18 +52,18 @@ public class TravelController {
 		model.addAttribute("countries" , countries);
 		model.addAttribute("travelForm", travel);
 		
-		return "/persons/travelForm";
+		return "/travels/travelForm";
 		
 	}
 	
-	@RequestMapping(value="/travels/saveTravel", method = RequestMethod.POST)
+	@RequestMapping(value="/travels/travelForm", method = RequestMethod.POST)
 	public String saveTravel(@ModelAttribute("travelForm") Travel travel, Model model,final RedirectAttributes redirectAtributes,BindingResult result) {
 		
 		logger.debug("saveTravel()");
 		
 		travelService.persisteTravel(travel);
 		
-		return "redirect:/persons/{" + travel.getPassportId() + "}/passport";
+		return "redirect:/persons/" + travel.getPassportId() + "/passport";
 		
 	}
 	

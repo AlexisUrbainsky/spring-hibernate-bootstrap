@@ -12,15 +12,12 @@
 
 <body>
 	
-	<spring:url value="/travels/saveTravel/" var="travelsActionUrl" />
-	
-	
 	<div class="container">
-		<form:form action="${travels}" modelAttribute="travelForm"  class="form-horizontal" method="post">
+		<spring:url value="/travels/travelForm" var="travelActionUrl" />
+		
+		<form:form action="${travelActionUrl}" method="post" modelAttribute="travelForm"  class="form-horizontal" >
 			
-			<spring:bind path="passportId">
-		   		<input type="hidden" name="${passportId}" value="${passportId}" id="${passportId}"><br />
-		    </spring:bind>
+        	<form:hidden path="passportId" />
         
 			<spring:bind path="startDate">
 				<div class="form-group ${status.error ? 'has-error' : ''}">
@@ -67,7 +64,7 @@
 			
 			<div class="form-group">
 				<div class="col-sm-offset-2 col-sm-10">
-			   		<button type="submit" class="btn-lg btn-primary pull-right">Add</button>
+			   		<button type="submit" class="btn-lg btn-primary pull-right">Add Travel</button>
 			    </div>
 			</div>
 		

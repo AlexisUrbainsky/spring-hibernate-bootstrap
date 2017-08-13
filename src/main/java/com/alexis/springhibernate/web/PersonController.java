@@ -18,6 +18,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.alexis.springhibernate.model.Passport;
 import com.alexis.springhibernate.model.Person;
+import com.alexis.springhibernate.model.Travel;
 import com.alexis.springhibernate.service.PersonService;
 import com.alexis.springhibernate.validator.PersonFormValidator;
 import org.slf4j.Logger;
@@ -132,9 +133,9 @@ public class PersonController {
 	public String showPassport(@PathVariable int id, Model model) {
 		
 		Person person = personService.findById(id);
-		
+		List<Travel> travels = person.getPassport().getTravels();
 		model.addAttribute("person" ,person);
-		model.addAttribute("travels" ,person.getPassport().getTravels());
+		model.addAttribute("travels" , travels);
 
 		return "/persons/passport";
 	}
