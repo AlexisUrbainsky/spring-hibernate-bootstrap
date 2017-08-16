@@ -34,7 +34,7 @@ public class SpringWebConfig extends WebMvcConfigurerAdapter {
 	 @Bean
 	 public ReloadableResourceBundleMessageSource messageSource() {
 		 ReloadableResourceBundleMessageSource rb = new ReloadableResourceBundleMessageSource();
-		 rb.setBasenames(new String[] {"messages/messages","messages/validation"} );
+		 rb.setBasenames(new String[] {"messages/messages","classpath:messages/validation"} );
 		 return rb;
 	 }
 	

@@ -74,7 +74,7 @@ public class PersonController {
 		logger.debug("saveUpdatePerson()");
 		
 		if(result.hasErrors()) {
-			return "redirect:/persons/add";
+			return "persons/personForm";
 		}else{
 			
 			personService.persistePerson(person);

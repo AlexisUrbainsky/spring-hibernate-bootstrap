@@ -21,9 +21,9 @@
 		
 		<spring:bind path="name">
 			<div class="form-group ${status.error ? 'has-error' : ''}">
-				<label class="col-sm-2 control-label">name</label>
+				<label class="col-sm-2 control-label">Name</label>
 				<div class="col-sm-10">
-					<form:input  path="name" class="form-control" id="name" placeholder="name" />
+					<form:input  path="name" class="form-control" id="name" placeholder="Name" />
 					<form:errors path="name" class="control-label" />
 				</div>
 		  	</div>
@@ -31,9 +31,9 @@
 		
 		<spring:bind path="lastName">
 			<div class="form-group ${status.error ? 'has-error' : ''}">
-				<label class="col-sm-2 control-label">lastName</label>
+				<label class="col-sm-2 control-label">Last Name</label>
 				<div class="col-sm-10">
-					<form:input  path="lastName" class="form-control" id="lastName" placeholder="lastName" />
+					<form:input  path="lastName" class="form-control" id="lastName" placeholder="LastName" />
 					<form:errors path="lastName" class="control-label" />
 				</div>
 		  	</div>
@@ -41,9 +41,9 @@
 		
 		<spring:bind path="sex">
 			<div class="form-group ${status.error ? 'has-error' : ''}">
-				<label class="col-sm-2 control-label">sex</label>
+				<label class="col-sm-2 control-label">Sex</label>
 				<div class="col-sm-10">
-					<form:input  path="sex" class="form-control" id="sex" placeholder="sex" />
+					<form:input  path="sex" class="form-control" id="sex" placeholder="Sex" />
 					<form:errors path="sex" class="control-label" />
 				</div>
 		  	</div>		
@@ -51,9 +51,9 @@
 
 		<spring:bind path="email">
 			<div class="form-group ${status.error ? 'has-error' : ''}">
-				<label class="col-sm-2 control-label">email</label>
+				<label class="col-sm-2 control-label">Email</label>
 				<div class="col-sm-10">
-					<form:input  path="email" class="form-control" id="email" placeholder="email" />
+					<form:input  path="email" class="form-control" id="email" placeholder="Email" />
 					<form:errors path="email" class="control-label" />
 				</div>
 		  	</div>		
@@ -61,9 +61,9 @@
 		
 		<spring:bind path="passport.nationality" >
 			<div class="form-group ${status.error ? 'has-error' : ''}">
-				<label class="col-sm-2 control-label">nationality</label>
+				<label class="col-sm-2 control-label">Nationality</label>
 				<div class="col-sm-10">
-					<form:input path="passport.nationality" class="form-control" id="nationality" placeholder="nationality" />
+					<form:input path="passport.nationality" class="form-control" id="nationality" placeholder="Nationality" />
 					<form:errors path="passport.nationality" class="control-label" />
 				</div>
 		  	</div>

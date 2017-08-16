@@ -7,6 +7,7 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 import com.alexis.springhibernate.model.Person;
+import com.alexis.springhibernate.service.PersonService;
 
 @Component
 public class PersonFormValidator implements Validator {
@@ -14,6 +15,10 @@ public class PersonFormValidator implements Validator {
 	@Autowired
 	@Qualifier("emailValidator")
 	EmailValidator emailValidator;
+	
+	
+	@Autowired
+	PersonService personService;
 	
 	@Override
 	public boolean supports(Class<?> clazz) {
@@ -30,6 +35,9 @@ public class PersonFormValidator implements Validator {
 		ValidationUtils.rejectIfEmpty(errors, "lastName", "NotEmpty.personForm.lastName");
 		ValidationUtils.rejectIfEmpty(errors, "sex", "NotEmpty.personForm.sex");
 		ValidationUtils.rejectIfEmpty(errors, "email", "Pattern.userForm.email");
+		ValidationUtils.rejectIfEmpty(errors, "passport.nationality", "NotEmpty.personForm.nationality");
+
+		
 		
 		if(!emailValidator.valid(person.getEmail())){
 			errors.rejectValue("email", "Pattern.userForm.email");
